@@ -1,0 +1,44 @@
+{
+  "name": "agent-retriever",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "convex dev --start 'vite --open'",
+    "build": "tsc -b && vite build",
+    "lint": "tsc && eslint .  --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "^1.168.24",
+    "@tanstack/react-router-devtools": "^1.166.13",
+    "convex": "^1.36.1",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  },
+  "devDependencies": {
+    "@convex-dev/eslint-plugin": "^1.2.2",
+    "@eslint/js": "^9.39.4",
+    "@tailwindcss/vite": "^4.2.2",
+    "@tanstack/router-plugin": "^1.167.26",
+    "@types/node": "^24.12.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.2.0",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.5.0",
+    "prettier": "^3.8.3",
+    "tailwindcss": "^4.2.2",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.58.2",
+    "vite": "^7.3.2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "@tailwindcss/oxide"
+    ]
+  }
+}
