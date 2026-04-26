@@ -1,3 +1,3 @@
 export function Index() {
-  return <div>Hello world!</div>;
+  return <div>Main content</div>;
 }

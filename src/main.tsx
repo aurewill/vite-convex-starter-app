@@ -34,7 +34,7 @@ const convex = new ConvexReactClient(convexUrl);
 createRoot(root).render(
   <StrictMode>
     <ConvexProvider client={convex}>
-      <MantineProvider defaultColorScheme="light" theme={mantineTheme}>
+      <MantineProvider forceColorScheme="light" theme={mantineTheme}>
         <ModalsProvider>
           <RouterProvider router={router} />
         </ModalsProvider>

@@ -62,6 +62,7 @@ export const mantineTheme: MantineThemeOverride = createTheme({
         shadow: "xl",
         radius: "md",
         withBorder: true,
+        bd: "0.5px solid gray.3",
       },
     }),
 
