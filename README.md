@@ -22,8 +22,11 @@ After the initial setup (<2 minutes) you'll have a working full-stack app using:
 3. Run `corepack enable`
    - This will enable corepack which will sync your local package manager with the repo's package manager (pnpm) and version.
 
-4. Run `pnpm convex dev`
-   - This will prompt you to login to Convex. In the script instructions, create a new Convex project, choose the cloud deployment option, and a `.env.local` should be created for you in the repo's root directory with your new Convex project's environment variables.
+4. Install node modules - run `pnpm i`
+
+5. Run `pnpm convex dev`
+   - This will prompt you to login to Convex. In the command instructions, for easiest DX, would recommend creating a new Convex project, choosing the cloud deployment option, and choosing the region closest to you.
+   - Afterwards, a `.env.local` file should be created for you in the repo's root directory with your Convex project's environment variables needed to run the frontend locally against your convex deployment.
 
 ## Learn more
 
