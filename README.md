@@ -7,8 +7,9 @@ After the initial setup (<2 minutes) you'll have a working full-stack app using:
 - Convex as your backend (database, server logic)
 - [React](https://react.dev/) as your frontend (web page interactivity)
 - [Vite](https://vitest.dev/) for optimized web hosting
+- [Tanstack Router](https://tanstack.com/router/latest/docs/overview) for routing
+- [Mantine](https://mantine.dev/) for a component library and design system
 - [Tailwind](https://tailwindcss.com/) for building great looking accessible UI
-- [Mantine]() for a component library and design system
 
 ## Get started
 
