@@ -6,6 +6,7 @@ import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 import { MantineProvider } from "@mantine/core";
 import { ModalsProvider } from "@mantine/modals";
+import { mantineTheme } from "./theme";
 
 const router = createRouter({ routeTree });
 
@@ -33,7 +34,7 @@ const convex = new ConvexReactClient(convexUrl);
 createRoot(root).render(
   <StrictMode>
     <ConvexProvider client={convex}>
-      <MantineProvider>
+      <MantineProvider defaultColorScheme="light" theme={mantineTheme}>
         <ModalsProvider>
           <RouterProvider router={router} />
         </ModalsProvider>
