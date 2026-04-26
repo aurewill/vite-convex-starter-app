@@ -5,6 +5,8 @@ import { v } from "convex/values";
 // You can delete this file (schema.ts) and the
 // app will continue to work.
 // The schema provides more precise TypeScript types.
+//
+// This is the quickstart schema - leaving here for reference.
 export default defineSchema({
   numbers: defineTable({
     value: v.number(),
