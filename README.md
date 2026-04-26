@@ -28,6 +28,16 @@ After the initial setup (<2 minutes) you'll have a working full-stack app using:
    - This will prompt you to login to Convex. In the command instructions, for easiest DX, would recommend creating a new Convex project, choosing the cloud deployment option, and choosing the region closest to you.
    - Afterwards, a `.env.local` file should be created for you in the repo's root directory with your Convex project's environment variables needed to run the frontend locally against your convex deployment.
 
+## Editor setup
+
+This repo includes VS Code/Cursor extension recommendations in `.vscode/extensions.json`:
+
+- ESLint: surfaces lint/type-safety feedback while editing.
+- Prettier: formats files on save using this repo's Prettier config (default Prettier settings).
+- Tailwind CSS IntelliSense: provides autocomplete and validation for Tailwind classes.
+
+Workspace settings enable format-on-save and set Prettier as the default formatter so formatting behavior comes from the repo instead of user-level editor settings.
+
 ## Learn more
 
 To learn more about developing your project with Convex, check out:
