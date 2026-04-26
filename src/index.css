@@ -1,22 +1,33 @@
-@import "tailwindcss";
+/*
+  Tailwind and Mantine both ship CSS, so we put them in explicit cascade layers.
+  The order is intentional: Tailwind reset first, Mantine component styles next,
+  Tailwind utilities last. This keeps Mantine components looking correct by
+  default while still allowing utility classes to override styles when needed.
+*/
+@layer theme, base, mantine, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+
+@import "@mantine/core/styles.layer.css";
+@import "@mantine/dropzone/styles.layer.css";
+@import "@mantine/spotlight/styles.layer.css";
+
+@import "tailwindcss/utilities.css" layer(utilities);
 
 @theme {
   --color-light: #ffffff;
   --color-dark: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    color: var(--color-light);
-    background: var(--color-dark);
-    font-family: Arial, Helvetica, sans-serif;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  body {
-    color: var(--color-dark);
-    background: var(--color-light);
-    font-family: Arial, Helvetica, sans-serif;
-  }
+/*
+  Development pattern: use Mantine for interactive components, forms, overlays,
+  and theme-driven design. Use Tailwind for page layout, spacing, responsive
+  composition, and small one-off overrides. Prefer Mantine props and classNames
+  for component internals instead of fighting generated Mantine styles globally.
+*/
+body {
+  color: var(--mantine-color-text);
+  background: var(--mantine-color-body);
+  font-family: var(--mantine-font-family);
 }
