@@ -19,23 +19,18 @@ export const SidebarToggle = ({
       }}
       variant="subtle"
       size={32}
-      className="group"
-      pos="relative"
+      className="group relative"
     >
       {collapsed ? (
         <>
           <Box
-            pos="absolute"
-            inset={0}
-            className="grid place-items-center transition-opacity group-hover:opacity-0"
+            className="absolute inset-0 grid place-items-center transition-opacity group-hover:opacity-0"
           >
             <PhosphorLogoIcon size={20} />
           </Box>
 
           <Box
-            pos="absolute"
-            inset={0}
-            className="grid place-items-center opacity-0 transition-opacity group-hover:opacity-100"
+            className="absolute inset-0 grid place-items-center opacity-0 transition-opacity group-hover:opacity-100"
           >
             <SidebarSimpleIcon size={20} />
           </Box>

@@ -2,27 +2,19 @@ import { useState } from "react";
 import { Outlet } from "@tanstack/react-router";
 import { Box, Paper } from "@mantine/core";
 import { Sidebar } from "./Sidebar";
+import { cn } from "../../utils/cn";
 
 export function RootLayout() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
-  const sidebarWidth = isSidebarCollapsed ? 52 : 250;
 
   return (
-    <Box
-      bg="gray.1"
-      h="100vh"
-      style={{
-        display: "flex",
-        overflow: "hidden",
-      }}
-    >
+    <Box className="flex h-screen overflow-hidden" bg="gray.1">
       <Box
+        className={cn(
+          "shrink-0 overflow-hidden transition-[flex-basis] duration-180 ease-[cubic-bezier(0.2,0,0,1)]",
+          isSidebarCollapsed ? "basis-[52px]" : "basis-[250px]",
+        )}
         p="xs"
-        style={{
-          flex: `0 0 ${sidebarWidth}px`,
-          overflow: "hidden",
-          transition: "flex-basis 180ms cubic-bezier(0.2, 0, 0, 1)",
-        }}
       >
         <Sidebar
           collapsed={isSidebarCollapsed}
@@ -30,9 +22,9 @@ export function RootLayout() {
         />
       </Box>
 
-      <Box flex={1} h="100%" miw={0}>
-        <Box h="100%" pt="xs" pb="xs" pr="xs">
-          <Paper bg="white" h="100%" shadow="none" p="xs">
+      <Box className="h-full min-w-0 flex-1">
+        <Box className="h-full" pt="xs" pr="xs" pb="xs">
+          <Paper className="h-full bg-white" shadow="none" p="xs">
             <Outlet />
           </Paper>
         </Box>

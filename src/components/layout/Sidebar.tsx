@@ -20,7 +20,7 @@ export const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
   return (
     <Stack>
       <Group justify="space-between" wrap="nowrap">
-        <Box w={32} h={32} className="grid place-items-center">
+        <Box className="grid size-8 place-items-center">
           <PhosphorLogoIcon size={20} />
         </Box>
         <SidebarToggle collapsed={collapsed} onToggle={onToggle} />
