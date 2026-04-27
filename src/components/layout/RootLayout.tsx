@@ -11,10 +11,10 @@ export function RootLayout() {
   useHotkeys([
     [
       "mod+B",
-      (event) => {
-        event.preventDefault();
+      () => {
         setIsSidebarCollapsed((isCollapsed) => !isCollapsed);
       },
+      { preventDefault: true },
     ],
   ]);
 
