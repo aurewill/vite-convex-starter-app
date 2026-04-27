@@ -1,4 +1,4 @@
-import { Group, Stack } from "@mantine/core";
+import { Box, Group, Stack } from "@mantine/core";
 import { PhosphorLogoIcon } from "@phosphor-icons/react";
 import { type Dispatch, type SetStateAction } from "react";
 import { SidebarToggle } from "./SidebarToggle";
@@ -19,8 +19,10 @@ export const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
 
   return (
     <Stack>
-      <Group justify="space-between">
-        <PhosphorLogoIcon size={20} />
+      <Group justify="space-between" wrap="nowrap">
+        <Box w={32} h={32} className="grid place-items-center">
+          <PhosphorLogoIcon size={20} />
+        </Box>
         <SidebarToggle collapsed={collapsed} onToggle={onToggle} />
       </Group>
     </Stack>

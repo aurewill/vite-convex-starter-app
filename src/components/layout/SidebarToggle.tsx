@@ -18,7 +18,7 @@ export const SidebarToggle = ({
         onToggle((isCollapsed) => !isCollapsed);
       }}
       variant="subtle"
-      size="lg"
+      size={32}
       className="group"
       pos="relative"
     >
