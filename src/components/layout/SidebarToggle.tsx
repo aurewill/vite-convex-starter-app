@@ -1,4 +1,4 @@
-import { ActionIcon, Box, Tooltip } from "@mantine/core";
+import { ActionIcon, Box, Kbd, Tooltip } from "@mantine/core";
 import { PhosphorLogoIcon, SidebarSimpleIcon } from "@phosphor-icons/react";
 import { Dispatch, SetStateAction } from "react";
 import { cn } from "../../utils/cn";
@@ -12,9 +12,18 @@ export const SidebarToggle = ({
 }) => {
   const label = collapsed ? "Open sidebar" : "Close sidebar";
 
+  const tooltipLabel = (
+    <Box component="span" className="flex items-center gap-2">
+      <span>Toggle sidebar</span>
+      <Kbd className="border-0 text-white" bg="gray.8" size="sm">
+        ⌘B
+      </Kbd>
+    </Box>
+  );
+
   return (
     <Tooltip
-      label={label}
+      label={tooltipLabel}
       position={collapsed ? "right" : "bottom"}
       transitionProps={{ duration: 0 }}
     >

@@ -1,11 +1,22 @@
 import { useState } from "react";
 import { Outlet } from "@tanstack/react-router";
 import { Box, Paper } from "@mantine/core";
+import { useHotkeys } from "@mantine/hooks";
 import { Sidebar } from "./Sidebar";
 import { cn } from "../../utils/cn";
 
 export function RootLayout() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+
+  useHotkeys([
+    [
+      "mod+B",
+      (event) => {
+        event.preventDefault();
+        setIsSidebarCollapsed((isCollapsed) => !isCollapsed);
+      },
+    ],
+  ]);
 
   return (
     <Box className="flex h-screen overflow-hidden" bg="gray.1">
