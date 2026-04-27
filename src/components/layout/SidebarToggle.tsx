@@ -22,9 +22,10 @@ export const SidebarToggle = ({
       size={32}
       className="group relative"
     >
+      {/* Layer the icons so collapsed hover can swap without remounting the button. */}
       <Box
         className={cn(
-          "absolute inset-0 grid place-items-center transition-opacity",
+          "absolute inset-0 flex items-center justify-center",
           collapsed ? "group-hover:opacity-0" : "opacity-0",
         )}
       >
@@ -33,7 +34,7 @@ export const SidebarToggle = ({
 
       <Box
         className={cn(
-          "absolute inset-0 grid place-items-center transition-opacity",
+          "absolute inset-0 flex items-center justify-center",
           collapsed ? "opacity-0 group-hover:opacity-100" : "opacity-100",
         )}
       >

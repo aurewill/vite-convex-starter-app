@@ -14,9 +14,10 @@ export const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
     <Stack>
       <Group justify="space-between" wrap="nowrap" gap={0}>
         <Box className="relative size-8 shrink-0">
+          {/* Keep the collapsed toggle and expanded logo in the same slot to avoid flicker. */}
           <Box
             className={cn(
-              "absolute inset-0 grid place-items-center transition-opacity",
+              "absolute inset-0 flex items-center justify-center",
               collapsed && "pointer-events-none opacity-0",
             )}
           >
@@ -25,7 +26,7 @@ export const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
 
           <Box
             className={cn(
-              "absolute inset-0 transition-opacity",
+              "absolute inset-0",
               !collapsed && "pointer-events-none opacity-0",
             )}
           >
@@ -35,7 +36,7 @@ export const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
 
         <Box
           className={cn(
-            "grid size-8 shrink-0 place-items-center transition-opacity",
+            "flex size-8 shrink-0 items-center justify-center",
             collapsed && "pointer-events-none opacity-0",
           )}
         >

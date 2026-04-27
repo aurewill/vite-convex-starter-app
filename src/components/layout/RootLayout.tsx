@@ -11,7 +11,7 @@ export function RootLayout() {
     <Box className="flex h-screen overflow-hidden" bg="gray.1">
       <Box
         className={cn(
-          "shrink-0 overflow-hidden transition-[flex-basis] duration-180 ease-[cubic-bezier(0.2,0,0,1)]",
+          "shrink-0 overflow-hidden duration-200",
           isSidebarCollapsed ? "basis-[52px]" : "basis-[250px]",
         )}
         p="xs"
