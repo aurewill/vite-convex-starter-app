@@ -2,6 +2,7 @@ import { Box, Group, Stack } from "@mantine/core";
 import { PhosphorLogoIcon } from "@phosphor-icons/react";
 import { type Dispatch, type SetStateAction } from "react";
 import { SidebarToggle } from "./SidebarToggle";
+import { cn } from "../../utils/cn";
 
 interface SidebarProps {
   collapsed: boolean;
@@ -9,21 +10,37 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
-  if (collapsed) {
-    return (
-      <Stack align="flex-start">
-        <SidebarToggle collapsed={collapsed} onToggle={onToggle} />
-      </Stack>
-    );
-  }
-
   return (
     <Stack>
-      <Group justify="space-between" wrap="nowrap">
-        <Box className="grid size-8 place-items-center">
-          <PhosphorLogoIcon size={20} />
+      <Group justify="space-between" wrap="nowrap" gap={0}>
+        <Box className="relative size-8 shrink-0">
+          <Box
+            className={cn(
+              "absolute inset-0 grid place-items-center transition-opacity",
+              collapsed && "pointer-events-none opacity-0",
+            )}
+          >
+            <PhosphorLogoIcon size={20} />
+          </Box>
+
+          <Box
+            className={cn(
+              "absolute inset-0 transition-opacity",
+              !collapsed && "pointer-events-none opacity-0",
+            )}
+          >
+            <SidebarToggle collapsed onToggle={onToggle} />
+          </Box>
         </Box>
-        <SidebarToggle collapsed={collapsed} onToggle={onToggle} />
+
+        <Box
+          className={cn(
+            "grid size-8 shrink-0 place-items-center transition-opacity",
+            collapsed && "pointer-events-none opacity-0",
+          )}
+        >
+          <SidebarToggle collapsed={false} onToggle={onToggle} />
+        </Box>
       </Group>
     </Stack>
   );
