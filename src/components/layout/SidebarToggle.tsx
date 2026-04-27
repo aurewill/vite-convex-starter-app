@@ -20,7 +20,7 @@ export const SidebarToggle = ({
       }}
       variant="subtle"
       size={32}
-      className="group relative"
+      className={cn("group relative", collapsed ? "cursor-e-resize" : "cursor-w-resize")}
     >
       {/* Layer the icons so collapsed hover can swap without remounting the button. */}
       <Box
