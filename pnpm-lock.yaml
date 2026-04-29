@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@agent-retriever/utils':
-        specifier: workspace:*
-        version: link:packages/utils
       '@mantine/core':
         specifier: 9.1.0
         version: 9.1.0(@mantine/hooks@9.1.0(react@19.2.5))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
@@ -32,6 +29,9 @@ importers:
       '@tanstack/react-router':
         specifier: 1.168.24
         version: 1.168.24(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      '@vite-convex-starter-app/utils':
+        specifier: workspace:*
+        version: link:packages/utils
       clsx:
         specifier: ^2.1.1
         version: 2.1.1

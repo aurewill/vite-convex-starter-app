@@ -1,5 +1,5 @@
 {
-  "name": "agent-retriever",
+  "name": "vite-convex-starter-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -14,7 +14,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@agent-retriever/utils": "workspace:*",
+    "@vite-convex-starter-app/utils": "workspace:*",
     "@mantine/core": "9.1.0",
     "@mantine/dropzone": "9.1.0",
     "@mantine/hooks": "9.1.0",
