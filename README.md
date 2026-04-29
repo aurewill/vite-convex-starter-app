@@ -13,7 +13,7 @@ After the initial setup (<2 minutes) you'll have a working full-stack app using:
 
 ## Get started
 
-1. Install nvm ([Node Version Manager installation instructions](https://github.com/nvm-sh/nvm#installing-and-updating))
+1. Install nvm if you don't have it ([Node Version Manager installation instructions](https://github.com/nvm-sh/nvm#installing-and-updating))
 
 2. Run `nvm install`
    - This will install this repo's node version if you don't have it. If you do have it, it will activate that node version.
@@ -28,6 +28,8 @@ After the initial setup (<2 minutes) you'll have a working full-stack app using:
 5. Run `pnpm convex dev`
    - This will prompt you to login to Convex. In the command instructions, for easiest DX, would recommend creating a new Convex project, choosing the cloud deployment option, and choosing the region closest to you.
    - Afterwards, a `.env.local` file should be created for you in the repo's root directory with your Convex project's environment variables needed to run the frontend locally against your convex deployment.
+
+6. `ctrl + c` to exit the convex deployment. Then run `pnpm dev` to run the app now that convex is set up.
 
 ## Editor setup
 
