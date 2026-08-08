@@ -1,63 +1,63 @@
-import { ActionIcon, Box, Kbd, Tooltip } from "@mantine/core";
-import { PhosphorLogoIcon, SidebarSimpleIcon } from "@phosphor-icons/react";
-import { Dispatch, SetStateAction } from "react";
-import { cn } from "../../utils/cn";
+import { BlocksIcon, PanelLeftIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Kbd } from "@/components/ui/kbd";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
 
 export const SidebarToggle = ({
   collapsed,
   onToggle,
 }: {
   collapsed: boolean;
-  onToggle: Dispatch<SetStateAction<boolean>>;
+  onToggle: () => void;
 }) => {
   const label = collapsed ? "Open sidebar" : "Close sidebar";
 
-  const tooltipLabel = (
-    <Box component="span" className="flex items-center gap-2">
-      <span>Toggle sidebar</span>
-      <Kbd className="border-0 text-white" bg="gray.8" size="sm">
-        ⌘B
-      </Kbd>
-    </Box>
-  );
-
   return (
-    <Tooltip
-      label={tooltipLabel}
-      position={collapsed ? "right" : "bottom"}
-      transitionProps={{ duration: 0 }}
-    >
-      <ActionIcon
-        aria-label={label}
-        onClick={() => {
-          onToggle((isCollapsed) => !isCollapsed);
-        }}
-        variant="subtle"
-        size={32}
-        className={cn(
-          "group relative",
-          collapsed ? "cursor-e-resize" : "cursor-w-resize",
-        )}
-      >
-        {/* Layer the icons so collapsed hover can swap without remounting the button. */}
-        <Box
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button
+          aria-label={label}
+          onClick={onToggle}
+          variant="ghost"
+          size="icon"
           className={cn(
-            "absolute inset-0 flex items-center justify-center",
-            collapsed ? "group-hover:opacity-0" : "opacity-0",
+            "group relative",
+            collapsed ? "cursor-e-resize" : "cursor-w-resize",
           )}
         >
-          <PhosphorLogoIcon size={20} />
-        </Box>
+          {/* Layer the icons so collapsed hover can swap without remounting the button. */}
+          <span
+            className={cn(
+              "absolute inset-0 flex items-center justify-center transition-opacity",
+              collapsed ? "group-hover:opacity-0" : "opacity-0",
+            )}
+          >
+            <BlocksIcon aria-hidden="true" className="size-5" />
+          </span>
 
-        <Box
-          className={cn(
-            "absolute inset-0 flex items-center justify-center",
-            collapsed ? "opacity-0 group-hover:opacity-100" : "opacity-100",
-          )}
-        >
-          <SidebarSimpleIcon size={20} />
-        </Box>
-      </ActionIcon>
+          <span
+            className={cn(
+              "absolute inset-0 flex items-center justify-center transition-opacity",
+              collapsed ? "opacity-0 group-hover:opacity-100" : "opacity-100",
+            )}
+          >
+            <PanelLeftIcon aria-hidden="true" className="size-5" />
+          </span>
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent
+        className="animate-none"
+        side={collapsed ? "right" : "bottom"}
+        sideOffset={4}
+      >
+        <span>Toggle sidebar</span>
+        <Kbd>⌘B</Kbd>
+      </TooltipContent>
     </Tooltip>
   );
 };

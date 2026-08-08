@@ -1,48 +1,48 @@
-import { Box, Group, Stack } from "@mantine/core";
-import { PhosphorLogoIcon } from "@phosphor-icons/react";
-import { type Dispatch, type SetStateAction } from "react";
+import { BlocksIcon } from "lucide-react";
 import { SidebarToggle } from "./SidebarToggle";
-import { cn } from "../../utils/cn";
+import { cn } from "@/lib/utils";
 
 interface SidebarProps {
   collapsed: boolean;
-  onToggle: Dispatch<SetStateAction<boolean>>;
+  onToggle: () => void;
 }
 
 export const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
   return (
-    <Stack>
-      <Group justify="space-between" wrap="nowrap" gap={0}>
-        <Box className="relative size-8 shrink-0">
+    <div className="flex flex-col">
+      <div className="flex flex-nowrap items-center justify-between gap-0">
+        <div className="relative size-8 shrink-0">
           {/* Keep the collapsed toggle and expanded logo in the same slot to avoid flicker. */}
-          <Box
+          <div
             className={cn(
               "absolute inset-0 flex items-center justify-center",
               collapsed && "pointer-events-none opacity-0",
             )}
           >
-            <PhosphorLogoIcon size={20} />
-          </Box>
+            <BlocksIcon aria-hidden="true" className="size-5" />
+          </div>
 
-          <Box
+          <div
+            inert={!collapsed}
             className={cn(
               "absolute inset-0",
               !collapsed && "pointer-events-none opacity-0",
             )}
           >
             <SidebarToggle collapsed onToggle={onToggle} />
-          </Box>
-        </Box>
+          </div>
+        </div>
 
-        <Box
+        <div
+          inert={collapsed}
           className={cn(
             "flex size-8 shrink-0 items-center justify-center",
             collapsed && "pointer-events-none opacity-0",
           )}
         >
           <SidebarToggle collapsed={false} onToggle={onToggle} />
-        </Box>
-      </Group>
-    </Stack>
+        </div>
+      </div>
+    </div>
   );
 };
