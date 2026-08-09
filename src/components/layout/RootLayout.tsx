@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
+import { useHotkey } from "@tanstack/react-hotkeys";
 import { Outlet } from "@tanstack/react-router";
 import { Sidebar } from "./Sidebar";
 import { cn } from "@/lib/utils";
@@ -6,24 +7,11 @@ import { cn } from "@/lib/utils";
 export function RootLayout() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
-  const toggleSidebar = () => {
+  const toggleSidebar = useCallback(() => {
     setIsSidebarCollapsed((isCollapsed) => !isCollapsed);
-  };
-
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key.toLowerCase() === "b" && (event.metaKey || event.ctrlKey)) {
-        event.preventDefault();
-        setIsSidebarCollapsed((isCollapsed) => !isCollapsed);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
   }, []);
+
+  useHotkey("Mod+B", toggleSidebar);
 
   return (
     <div className="flex h-svh overflow-hidden bg-muted">

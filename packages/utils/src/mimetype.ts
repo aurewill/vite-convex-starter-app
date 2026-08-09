@@ -1,4 +1,4 @@
-import { InvertStringStringRecord } from "./types";
+import type { InvertStringStringRecord } from "./types";
 
 export const FILE_EXT_TO_MIME_TYPE = {
   png: "image/png",
