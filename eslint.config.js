@@ -77,5 +77,12 @@ export default defineConfig([
       "@typescript-eslint/require-await": "off",
     },
   },
+  {
+    files: ["src/components/ui/**/*.{ts,tsx}"],
+    rules: {
+      // Registry components may intentionally export variants alongside components.
+      "react-refresh/only-export-components": "off",
+    },
+  },
   ...convexPlugin.configs.recommended,
 ]);

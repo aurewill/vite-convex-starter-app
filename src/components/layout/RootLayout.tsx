@@ -1,45 +1,35 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
+import { useHotkey } from "@tanstack/react-hotkeys";
 import { Outlet } from "@tanstack/react-router";
-import { Box, Paper } from "@mantine/core";
-import { useHotkeys } from "@mantine/hooks";
 import { Sidebar } from "./Sidebar";
-import { cn } from "../../utils/cn";
+import { cn } from "@/lib/utils";
 
 export function RootLayout() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
-  useHotkeys([
-    [
-      "mod+B",
-      () => {
-        setIsSidebarCollapsed((isCollapsed) => !isCollapsed);
-      },
-      { preventDefault: true },
-    ],
-  ]);
+  const toggleSidebar = useCallback(() => {
+    setIsSidebarCollapsed((isCollapsed) => !isCollapsed);
+  }, []);
+
+  useHotkey("Mod+B", toggleSidebar);
 
   return (
-    <Box className="flex h-screen overflow-hidden" bg="gray.1">
-      <Box
+    <div className="flex h-svh overflow-hidden bg-muted">
+      <aside
+        aria-label="Primary sidebar"
         className={cn(
-          "shrink-0 overflow-hidden duration-200",
+          "shrink-0 overflow-hidden p-2 transition-[flex-basis] duration-200 ease-out motion-reduce:transition-none",
           isSidebarCollapsed ? "basis-[52px]" : "basis-[250px]",
         )}
-        p="xs"
       >
-        <Sidebar
-          collapsed={isSidebarCollapsed}
-          onToggle={setIsSidebarCollapsed}
-        />
-      </Box>
+        <Sidebar collapsed={isSidebarCollapsed} onToggle={toggleSidebar} />
+      </aside>
 
-      <Box className="h-full min-w-0 flex-1">
-        <Box className="h-full" pt="xs" pr="xs" pb="xs">
-          <Paper className="h-full bg-white" shadow="none" p="xs">
-            <Outlet />
-          </Paper>
-        </Box>
-      </Box>
-    </Box>
+      <main className="h-full min-w-0 flex-1 py-2 pr-2">
+        <div className="h-full rounded-lg border bg-background p-2">
+          <Outlet />
+        </div>
+      </main>
+    </div>
   );
 }

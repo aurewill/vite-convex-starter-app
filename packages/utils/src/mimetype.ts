@@ -1,7 +1,28 @@
-import { MIME_TYPES } from "@mantine/dropzone";
-import { InvertStringStringRecord } from "./types";
+import type { InvertStringStringRecord } from "./types";
 
-export const FILE_EXT_TO_MIME_TYPE = MIME_TYPES;
+export const FILE_EXT_TO_MIME_TYPE = {
+  png: "image/png",
+  gif: "image/gif",
+  jpeg: "image/jpeg",
+  svg: "image/svg+xml",
+  webp: "image/webp",
+  avif: "image/avif",
+  heic: "image/heic",
+  heif: "image/heif",
+  mp4: "video/mp4",
+  zip: "application/zip",
+  rar: "application/x-rar",
+  "7z": "application/x-7z-compressed",
+  csv: "text/csv",
+  pdf: "application/pdf",
+  doc: "application/msword",
+  docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  xls: "application/vnd.ms-excel",
+  xlsx: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  ppt: "application/vnd.ms-powerpoint",
+  pptx: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  exe: "application/vnd.microsoft.portable-executable",
+} as const;
 
 export const MIME_TYPE_TO_FILE_EXT = {
   "image/png": "png",

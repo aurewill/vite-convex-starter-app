@@ -1,15 +1,15 @@
 # Welcome to your Convex + React (Vite) app
 
-This is a [Convex](https://convex.dev/) project originally created with [`pnpm create convex`](https://www.npmjs.com/package/create-convex).
+This is a [Convex](https://convex.dev/) project originally created with [`pnpm create convex@latest`](https://www.npmjs.com/package/create-convex).
 
 After the initial setup (<2 minutes) you'll have a working full-stack app using:
 
 - Convex as your backend (database, server logic)
 - [React](https://react.dev/) as your frontend (web page interactivity)
-- [Vite](https://vitest.dev/) for optimized web hosting
-- [Tanstack Router](https://tanstack.com/router/latest/docs/overview) for routing
-- [Mantine](https://mantine.dev/) for a component library and design system
-- [Tailwind](https://tailwindcss.com/) for building great looking accessible UI
+- [Vite](https://vite.dev/) as the frontend development server and build tool
+- [TanStack Router](https://tanstack.com/router/latest/docs/overview) for routing
+- [shadcn/ui](https://ui.shadcn.com/) with Radix primitives for accessible UI
+- [Tailwind CSS](https://tailwindcss.com/) for application layout and styling
 
 ## Get started
 
@@ -23,13 +23,24 @@ After the initial setup (<2 minutes) you'll have a working full-stack app using:
 3. Run `corepack enable`
    - This will enable corepack which will sync your local package manager with the repo's package manager (pnpm) and version.
 
-4. Install node modules - run `pnpm i`
+4. Run `pnpm install` to install the workspace dependencies.
 
-5. Run `pnpm convex dev`
-   - This will prompt you to login to Convex. In the command instructions, for easiest DX, would recommend creating a new Convex project, choosing the cloud deployment option, and choosing the region closest to you.
-   - Afterwards, a `.env.local` file should be created for you in the repo's root directory with your Convex project's environment variables needed to run the frontend locally against your convex deployment.
+5. Run `pnpm dev`.
+   - On the first run, Convex will prompt you to log in for a cloud deployment or develop anonymously with a local deployment.
+   - Convex will configure the project, write the deployment details and `VITE_CONVEX_URL` to `.env.local`, then start Vite and open the app in your browser.
+   - Keep this process running while you develop. It syncs backend changes to your development deployment and serves frontend changes through Vite.
 
-6. `ctrl + c` to exit the convex deployment. Then run `pnpm dev` to run the app now that convex is set up.
+Future runs of `pnpm dev` will reuse the deployment configured in `.env.local`.
+
+## UI components
+
+This project uses the shadcn CLI and the configuration in `components.json`. Add a component from the registry with:
+
+```bash
+pnpm dlx shadcn@latest add <component>
+```
+
+Files in `src/components/ui/**` are registry-managed. Keep application-specific composition in components outside that directory, and review generated diffs when updating registry components.
 
 ## Editor setup
 
