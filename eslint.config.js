@@ -30,12 +30,8 @@ export default defineConfig([
         ...globals.node,
       },
       parserOptions: {
-        project: [
-          "./packages/utils/tsconfig.json",
-          "./tsconfig.node.json",
-          "./tsconfig.app.json",
-          "./convex/tsconfig.json",
-        ],
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
     plugins: {

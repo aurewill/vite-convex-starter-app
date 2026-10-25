@@ -1,6 +1,18 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "json.schemaDownload.trustedDomains": {
+    "https://ui.shadcn.com/": true
+  },
+  "tailwindCSS.files.exclude": [
+    "**/.git/**",
+    "**/node_modules/**",
+    "**/.hg/**",
+    "**/.svn/**",
+    "**/src/components/ui/**",
+    "**/src/components/ai-elements/**",
+    "**/src/hooks/use-mobile.ts"
+  ],
   "files.readonlyInclude": {
     "**/routeTree.gen.ts": true
   },

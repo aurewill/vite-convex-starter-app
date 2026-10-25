@@ -49,8 +49,15 @@ This repo includes VS Code/Cursor extension recommendations in `.vscode/extensio
 - ESLint: surfaces lint/type-safety feedback while editing.
 - Prettier: formats files on save using this repo's Prettier config (default Prettier settings).
 - Tailwind CSS IntelliSense: provides autocomplete and validation for Tailwind classes.
+- [TypeScript 7](https://marketplace.visualstudio.com/items?itemName=TypeScriptTeam.native-preview): enables the native TypeScript language server in VS Code.
 
 Workspace settings enable format-on-save and set Prettier as the default formatter so formatting behavior comes from the repo instead of user-level editor settings.
+
+## TypeScript
+
+Run `pnpm typecheck` to check the app, Vite config, utils package, and Convex backend. `pnpm lint` runs these type checks before ESLint.
+
+Builds and command-line type checks use TypeScript 7.0.2 through the `tsc` executable in both workspace packages. At the workspace root, `@typescript/native` is an npm alias for TypeScript 7, while `typescript` is an alias for the TypeScript 6 compatibility package required by ESLint's JavaScript compiler API integration. This follows Microsoft's [side-by-side migration guidance](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/). The compatibility package exposes `tsc6`, so it does not replace the TypeScript 7 `tsc` executable.
 
 ## Learn more
 
