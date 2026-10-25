@@ -1,2 +1,14 @@
 packages:
   - "packages/*"
+
+allowBuilds:
+  esbuild: true
+  "@tailwindcss/oxide": true
+
+permissions:
+  '@tanstack/react-hotkeys':
+    skills: true
+  '@tanstack/react-router':
+    skills: true
+  '@tanstack/router-plugin':
+    skills: true
